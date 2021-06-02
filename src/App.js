@@ -47,6 +47,12 @@ class App extends React.Component {
     this.setState({...this.state, todo: changedTask})
   }
 
+  clearCompleted = e => {
+    e.preventDefault();
+    const clearedArray = this.state.todo.filter(task => !task.completed)
+    this.setState({...this.state, todo: clearedArray});
+  }
+
   inputOnChange = e => {
     this.setState({...this.state.text, text: e.target.value})
   }
@@ -74,7 +80,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoForm textValue={this.state.text} change={this.inputOnChange} submit={this.formSubmit} enter={this.inputEnterListener} />
+        <TodoForm textValue={this.state.text} change={this.inputOnChange} submit={this.formSubmit} clear={this.clearCompleted} />
         <TodoList todoArray={this.state.todo} completedToggle={this.completedToggle} />
       </div>
     );
