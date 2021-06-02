@@ -31,15 +31,42 @@ class App extends React.Component {
     super();
 
     this.state = {
-      todo: defaultTodo
+      todo: defaultTodo,
+      text: ''
     }
 
   }
 
+  // CLICK HANDLER FOR TODO WILL TOGGLE COMPLETED GIVEN TODO ID
+
+  inputOnChange = e => {
+    this.setState({...this.state.text, text: e.target.value})
+  }
+
+  taskCreator = someText => {
+    return {
+      task: someText,
+      id: Date.now() + Math.random(),
+      completed: false
+    }
+  }
+
+  formSubmit = e => {
+    e.preventDefault();
+    this.setState({...this.state, todo:
+      [
+      ...this.state.todo, this.taskCreator(this.state.text)
+      ]
+    })
+    this.setState({text: ''})
+  }
+
+  // CLEARCOMPLETED ON CLICK BUTTON HANDLER
+
   render() {
     return (
       <div>
-        <TodoForm />
+        <TodoForm textValue={this.state.text} change={this.inputOnChange} submit={this.formSubmit} />
         <TodoList todoArray={this.state.todo} />
       </div>
     );

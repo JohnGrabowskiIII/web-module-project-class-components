@@ -7,6 +7,12 @@ import React from 'react'
 // CLEAR COMPLETED BUTTON
 class TodoForm extends React.Component {
 
+    constructor(props) {
+        super(props)
+
+
+    }
+
     render() {
 
         return (
@@ -14,8 +20,18 @@ class TodoForm extends React.Component {
                 <label>
                     Please input the details of your task
                     {/* STOP RESIZING IN CSS WITH resize: none; */}
-                    <textarea name='taskInput' maxLength='100' rows='8' cols='40' placeholder='Step 1: x, Step 2: y...' /> 
+                    {/* NEEDS EVENT LISTENER FOR ENTER KEY PRESS */}
+                    {/* ENTER PRESS SUBMITS */}
+                    <input type='text'
+                    name='taskInput'
+                    maxLength='100'
+                    placeholder='Step 1: x, Step 2: y...'
+                    value={this.props.textValue}
+                    onChange={this.props.change} />
                 </label>
+                <button onClick={this.props.submit} >Add Todo</button>
+                {/* ADD ONCLICK HERE TO CLEAR COMPLETED TASKS */}
+                <button>Clear Completed</button>
             </form>
         )
     }
