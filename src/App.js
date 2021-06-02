@@ -1,5 +1,8 @@
+
 import React from 'react';
+
 import TodoList from './components/TodoList'
+import TodoForm from './components/TodoForm'
 
 const defaultTodo = [
   {
@@ -36,6 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <TodoForm />
         <TodoList todoArray={this.state.todo} />
       </div>
     );
