@@ -16,7 +16,7 @@ class TodoList extends React.Component {
 
     todoIterate = () => {
         return this.props.todoArray.map(item => {
-            return <Todo id={item.id} item={item} key={item.id} completedToggle={this.props.completedToggle}/>
+            return <Todo id={item.id} item={item} key={item.id} completedToggle={this.props.completedToggle} />
         })
     }
 
