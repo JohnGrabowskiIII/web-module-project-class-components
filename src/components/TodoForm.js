@@ -27,7 +27,8 @@ class TodoForm extends React.Component {
                     maxLength='100'
                     placeholder='Step 1: x, Step 2: y...'
                     value={this.props.textValue}
-                    onChange={this.props.change} />
+                    onChange={this.props.change}
+                    onKeyDown={this.props.enter} />
                 </label>
                 <button onClick={this.props.submit} >Add Todo</button>
                 {/* ADD ONCLICK HERE TO CLEAR COMPLETED TASKS */}

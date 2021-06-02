@@ -38,6 +38,13 @@ class App extends React.Component {
   }
 
   // CLICK HANDLER FOR TODO WILL TOGGLE COMPLETED GIVEN TODO ID
+  completedToggle = id => {
+    const changedTask = this.state.todo.map(task => {
+      if (task.id === id) return {...task, completed: !task.completed}
+      return task
+    })
+    this.setState({...this.state, todo: changedTask})
+  }
 
   inputOnChange = e => {
     this.setState({...this.state.text, text: e.target.value})
@@ -66,8 +73,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoForm textValue={this.state.text} change={this.inputOnChange} submit={this.formSubmit} />
-        <TodoList todoArray={this.state.todo} />
+        <TodoForm textValue={this.state.text} change={this.inputOnChange} submit={this.formSubmit} enter={this.inputEnterListener} />
+        <TodoList todoArray={this.state.todo} completedToggle={this.completedToggle} />
       </div>
     );
   }

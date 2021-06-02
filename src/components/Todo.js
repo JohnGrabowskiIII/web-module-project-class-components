@@ -5,11 +5,16 @@ import React from 'react'
 
 class Todo extends React.Component {
 
+    constructor(props){
+        super();
+
+    }
+
     render() {
         return (
             // DIV NEEDS ONCLICK WILL TOGGLE STATE ID TASK COMPLETED
             // WHEN ITEM.COMPLETED = TRUE CHANGE CSS
-            <div>
+            <div onClick={() => this.props.completedToggle(this.props.id)} >
                 <p>{this.props.item.task}</p>
             </div>
         )

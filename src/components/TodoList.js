@@ -12,13 +12,11 @@ class TodoList extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log(this.props.todoArray)
-
     }
 
     todoIterate = () => {
         return this.props.todoArray.map(item => {
-            return <Todo item={item} key={item.id} />
+            return <Todo id={item.id} item={item} key={item.id} completedToggle={this.props.completedToggle}/>
         })
     }
 
