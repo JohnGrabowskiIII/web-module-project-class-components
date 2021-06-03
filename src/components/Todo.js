@@ -13,17 +13,21 @@ class Todo extends React.Component {
 
     }
 
-    TaskPtag = styled.p`
-    text-decoration: ${props => this.props.item.completed ? 'line-through' : 'none'}
+    TaskContainer = styled.div`
+        background-color: ${props => this.props.item.completed ? 'red' : 'pink'};
+        padding: ${props => this.props.item.completed ? '5px 5px' : '15px 5px'};
+
+        > p {
+            color: ${props => this.props.item.completed ? 'white' : 'black'};
+            text-decoration: ${props => this.props.item.completed ? 'line-through' : 'none'};
+        }
     `
 
     render() {
         return (
-            // DIV NEEDS ONCLICK WILL TOGGLE STATE ID TASK COMPLETED
-            // WHEN ITEM.COMPLETED = TRUE CHANGE CSS
-            <div onClick={() => this.props.completedToggle(this.props.id)} >
-                <this.TaskPtag>{this.props.item.task}</this.TaskPtag>
-            </div>
+            <this.TaskContainer onClick={() => this.props.completedToggle(this.props.id)} >
+                <p>{this.props.item.task}</p>
+            </this.TaskContainer>
         )
     }
 

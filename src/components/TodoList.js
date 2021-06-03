@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 
 import React from 'react';
+import styled from 'styled-components'
 
 import Todo from './Todo'
 
@@ -14,6 +15,17 @@ class TodoList extends React.Component {
 
     }
 
+    AllTasksContainer = styled.div`
+        background: black;
+        color: white;
+       
+
+        > h1 {
+            text-align: center;
+            padding-top: 20px;
+        }
+    `
+
     todoIterate = () => {
         return this.props.todoArray.map(item => {
             return <Todo id={item.id} item={item} key={item.id} completedToggle={this.props.completedToggle} />
@@ -22,10 +34,10 @@ class TodoList extends React.Component {
 
     render() {
         return(
-            <>
+            <this.AllTasksContainer>
                 <h1>Todo List</h1>
                 {this.todoIterate()}
-            </>
+            </this.AllTasksContainer>
         )
     }
 
