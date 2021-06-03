@@ -1,5 +1,6 @@
 
 import React from 'react'
+import styled from 'styled-components';
 
 // INPUT
 // ENTER WHILE IN INPUT SHOULD SUBMIT ALSO
@@ -13,10 +14,38 @@ class TodoForm extends React.Component {
 
     }
 
+    StyledForm = styled.form`
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: salmon;
+
+        > button {
+            width: 82%;
+            margin: 0 auto;
+        }
+
+        > * > input {
+            width: 80%;
+            background-color: FloralWhite;
+        }
+    `
+
+    TodoButton = styled.button`
+        background-color: pink;
+        color: black;
+    `
+
+    ClearButton = styled.button`
+        background-color: red;
+        color: white;
+    `
+
     render() {
 
         return (
-            <form>
+            <this.StyledForm>
                 <label>
                     Please input the details of your task
                     {/* STOP RESIZING IN CSS WITH resize: none; */}
@@ -30,10 +59,10 @@ class TodoForm extends React.Component {
                     onChange={this.props.change}
                     onKeyDown={this.props.enter} />
                 </label>
-                <button onClick={this.props.submit} >Add Todo</button>
+                <this.TodoButton onClick={this.props.submit} >Add Todo</this.TodoButton>
                 {/* ADD ONCLICK HERE TO CLEAR COMPLETED TASKS */}
-                <button onClick={this.props.clear} >Clear Completed</button>
-            </form>
+                <this.ClearButton onClick={this.props.clear} >Clear Completed</this.ClearButton>
+            </this.StyledForm>
         )
     }
 

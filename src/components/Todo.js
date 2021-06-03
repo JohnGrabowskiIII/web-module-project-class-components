@@ -18,6 +18,7 @@ class Todo extends React.Component {
         padding: ${props => this.props.item.completed ? '5px 5px' : '15px 5px'};
 
         > p {
+            font-size: 1rem;
             color: ${props => this.props.item.completed ? 'white' : 'black'};
             text-decoration: ${props => this.props.item.completed ? 'line-through' : 'none'};
         }

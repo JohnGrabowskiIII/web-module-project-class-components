@@ -16,13 +16,15 @@ class TodoList extends React.Component {
     }
 
     AllTasksContainer = styled.div`
+        width: 50%;
         background: black;
         color: white;
        
 
         > h1 {
             text-align: center;
-            padding-top: 20px;
+            padding: 13px;
+            font-size: 2rem;
         }
     `
 

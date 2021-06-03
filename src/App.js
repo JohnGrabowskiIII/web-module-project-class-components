@@ -1,8 +1,11 @@
 
 import React from 'react';
+import styled from 'styled-components';
 
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+
+import './cssReset.css';
 
 const defaultTodo = [
   {
@@ -36,6 +39,14 @@ class App extends React.Component {
     }
 
   }
+
+
+  PageContainer = styled.div`
+    height: 100%;
+    width: 90%;
+    display: flex;
+    margin: 0% auto;
+  `
 
   // CLICK HANDLER FOR TODO WILL TOGGLE COMPLETED GIVEN TODO ID
   completedToggle = id => {
@@ -78,10 +89,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <this.PageContainer>
         <TodoForm textValue={this.state.text} change={this.inputOnChange} submit={this.formSubmit} clear={this.clearCompleted} />
         <TodoList todoArray={this.state.todo} completedToggle={this.completedToggle} />
-      </div>
+      </this.PageContainer>
     );
   }
 }
