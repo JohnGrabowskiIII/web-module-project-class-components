@@ -77,7 +77,7 @@ class App extends React.Component {
 
   formSubmit = e => {
     e.preventDefault();
-    if (this.state.text === '') return
+    if (this.state.text.trim() === '') return
     this.setState({...this.state, todo:
       [
       ...this.state.todo, this.taskCreator(this.state.text)
